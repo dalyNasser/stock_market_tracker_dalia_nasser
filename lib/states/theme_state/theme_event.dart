@@ -1,8 +1,8 @@
-part of 'theme_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-abstract class ThemeEvent {
+abstract class ThemeEvent extends Equatable {
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
+
 class ToggleTheme extends ThemeEvent {}

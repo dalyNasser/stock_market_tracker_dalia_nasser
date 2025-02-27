@@ -1,12 +1,11 @@
-part of 'theme_bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-abstract class ThemeState {
+class ThemeState extends Equatable {
+  final ThemeData themeData;
+
+  ThemeState(this.themeData);
+
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [themeData];
 }
-
-class ThemeInitial extends ThemeState {}
-class ThemeLight extends ThemeState {}
-
-class ThemeDark extends ThemeState {}

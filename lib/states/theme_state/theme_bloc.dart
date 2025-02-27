@@ -1,21 +1,17 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-
-part 'theme_event.dart';
-part 'theme_state.dart';
+import 'package:flutter/material.dart';
+import 'theme_event.dart';
+import 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
-  ThemeBloc() : super(ThemeInitial()) {
-    on<ThemeEvent>((event, emit) {
-        ThemeLight();
+  ThemeBloc() : super(ThemeState(ThemeData.light())) {
+    on<ToggleTheme>((event, emit) {
+      final currentTheme = state.themeData;
+      if (currentTheme == ThemeData.light()) {
+        emit(ThemeState(ThemeData.dark()));
+      } else {
+        emit(ThemeState(ThemeData.light()));
+      }
     });
-  }
-  @override
-  Stream<ThemeState> mapEventToState(ThemeEvent event) async* {
-    if (event is ToggleTheme) {
-      yield state is ThemeLight ? ThemeDark() : ThemeLight();
-    }
   }
 }

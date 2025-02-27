@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.stock.market.ys.stock_market_tracker_dalia_nasser"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
